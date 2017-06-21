@@ -16,6 +16,16 @@
   zoom: 1; // For IE 6/7 (trigger hasLayout)
 }
 
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  padding-bottom: .5em;
+  padding-top: .5em;
+}
+
 main h2 {
   border-bottom: 0;
   font-size: 1.5rem;
@@ -23,6 +33,7 @@ main h2 {
 }
 
 .header-title {
+  margin: 0;
   text-align: center;
 }
 
@@ -57,9 +68,36 @@ main h2 {
 }
 
 .who-we-are__photo {
-  max-width: 100%;
+  margin: 0 auto;
+  max-width: 70%;
+
+  @include breakpoint(760px) {
+    max-width: 90%;
+  }
 }
 
-.client-list li {
-  margin-bottom: .3rem;
+.client-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.client-list__item {
+  display: block;
+  flex: 0 0 45%;
+  margin: 0 0 .75rem;
+
+  @include breakpoint(760px) {
+    flex: 0 0 30%;
+  }
+
+  &::before {
+    content: none;
+  }
+
+  img {
+    margin: 0;
+    max-width: 100%;
+  }
 }
